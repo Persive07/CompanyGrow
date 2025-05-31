@@ -11,11 +11,14 @@ export default function Login() {
   const navigate = useNavigate();
 
   const loginUser = async (userData) => {
-    const response = await fetch('http://localhost:4000/api/auth/login', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(userData),
-    });
+
+    const API_BASE = process.env.NODE_ENV === 'production' ? '' : 'http://localhost:5000';
+  
+  const response = await fetch(`${API_BASE}/api/auth/login`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(userData),
+  });
 
     let data;
     try {
