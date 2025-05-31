@@ -4,6 +4,7 @@
   "description": "Employee Performance Management System",
   "scripts": {
     "build": "cd frontend && npm install && npm run build",
+    "build:azure":"npm run build && cd backend && npm install",
     "start": "cd backend && npm start",
     "dev": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm start\"",
     "install-all": "cd backend && npm install && cd ../frontend && npm install"
