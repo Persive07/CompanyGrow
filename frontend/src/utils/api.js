@@ -1,4 +1,5 @@
-// utils/api.js
+const API_BASE = process.env.NODE_ENV === 'production' ? '' : 'http://localhost:5000';
+
 const makeAuthenticatedRequest = async (url, options = {}) => {
   const token = localStorage.getItem('token');
   
@@ -10,12 +11,12 @@ const makeAuthenticatedRequest = async (url, options = {}) => {
     ...options
   };
 
-  const response = await fetch(`http://localhost:4000${url}`, config);
+  const response = await fetch(`${API_BASE}${url}`, config);
   
-  // Handle token expiration
   if (response.status === 401) {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
+    localStorage.removeItem('id');
     window.location.href = '/login';
     return;
   }
