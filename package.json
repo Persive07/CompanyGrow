@@ -1,0 +1,17 @@
+{
+  "name": "employee-management-system",
+  "version": "1.0.0",
+  "description": "Employee Performance Management System",
+  "scripts": {
+    "build": "cd frontend && npm install && npm run build",
+    "start": "cd backend && npm start",
+    "dev": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm start\"",
+    "install-all": "cd backend && npm install && cd ../frontend && npm install"
+  },
+  "engines": {
+    "node": "18.x"
+  },
+  "keywords": ["employee", "performance", "management", "react", "nodejs"],
+  "author": "Your Name",
+  "license": "MIT"
+}
