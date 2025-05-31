@@ -29,12 +29,12 @@ app.use('/api/project', projectRoute);
 const paymentRoute = require('./routes/payment.route');
 app.use('/api/payment', paymentRoute);
 
-// Serve static files from React build (PRODUCTION ONLY)
+// Serve static files from React build
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../frontend/build')));
   
-  // Catch all handler: send back React's index.html file
-  app.get('*', (req, res) => {
+  // Fixed catch-all route - use /* instead of *
+  app.get('/*', (req, res) => {
     res.sendFile(path.join(__dirname, '../frontend/build/index.html'));
   });
 } else {
@@ -42,6 +42,7 @@ if (process.env.NODE_ENV === 'production') {
     res.send('CompanyGrow API');
   });
 }
+
 
 // Use process.env.PORT for Render
 const PORT = process.env.PORT || 5000;
