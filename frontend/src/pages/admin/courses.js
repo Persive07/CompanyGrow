@@ -253,6 +253,8 @@ const AdminCoursesTab = () => {
     };
     
 
+
+  
   const styles = {
     container: {
       padding: '20px',
@@ -529,6 +531,7 @@ const AdminCoursesTab = () => {
     }
   };
 
+  
   if (loading) {
     return (
       <div style={styles.container}>
@@ -606,7 +609,7 @@ const AdminCoursesTab = () => {
     );
   }
 
-  // Course Detail View
+  // Detailed View
   if (view === 'detail' && selectedCourse) {
     return (
       <div style={styles.container}>
